@@ -1,0 +1,29 @@
+<p>item-componente works!</p>
+<button type="button" class="btn btn-primary">Base class</button>
+    <h3>Registro de Usuarios</h3>
+    <form>
+        <div class="mb-3">
+            <label class="form-label" for="nombre">Nombre:</label>
+            <input class="form-control" [(ngModel)]="usuario.nombre" type="text" name="nombre"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="correo">Correo:</label>
+            <input class="form-control" [(ngModel)]="usuario.correo" type="email" name="correo"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="edad">Edad:</label>
+            <input class="form-control" [(ngModel)]="usuario.edad" type="number" name="edad"/>
+        </div>
+        <button class="btn btn-success" (click)="registrar()" >Registrar</button>
+        <button class="btn btn-info" [disabled]="!usuario.nombre || !usuario.correo" >Registrar</button>
+        <button class="btn btn-info" (click)="limpiar()" >Limpiar</button>
+    
+    </form>
+
+    <div class="text-bg-warning p-3">{{usuarioServicio.getMensaje()()}}</div>
+    <h6>Nombre:</h6>
+        <p>{{usuario.nombre}}</p>
+    <h6>Correo:</h6>
+        <p>{{usuario.correo}}</p>
+    <h6>Edad:</h6>
+        <p>{{usuario.edad}}</p>
