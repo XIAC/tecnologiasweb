@@ -1,0 +1,41 @@
+<p>producto-componente works!</p>
+<h1>Producto</h1>
+<div class="container">
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" 
+                class="form-control" id="nombre" 
+                placeholder="Ingrese nombre"
+                [(ngModel)]="nuevoProdc().nombre">
+    </div>
+    <div class="mb-3">
+        <label for="precio" class="form-label">Precio</label>
+        <input type="number" class="form-control" id="precio" 
+        placeholder="Ingrese precio"
+        [(ngModel)]="nuevoProdc().precio">
+    </div>
+    <div class="mb-3">
+        <label for="categoria" class="form-label">Categoria</label>
+        <select class="form-select" aria-label="Default select example">
+            <option value="0">Seleccione una categoria</option>
+            <option *ngFor="let c of categorias() "  value="c.id">
+                {{c.nombre}}
+
+            </option>
+  
+        </select>
+    </div>
+    <div class="mb-3">
+        <button type="button" class="btn btn-primary" 
+            (click)="guardar()">Guardar</button>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <strong>Dell 17"</strong> en  7525 Bs
+        </li>
+        <li class="list-group-item">
+            <strong>Toshiba 14"</strong> en  5525 Bs
+        </li>
+    </ul>
+</div>
+

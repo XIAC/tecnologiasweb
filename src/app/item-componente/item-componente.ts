@@ -5,7 +5,7 @@ import { UsuarioServicio } from '../servicios/usuario-servicio';
 
 @Component({
   selector: 'app-item-componente',
-  imports: [NegociosComponente, FormsModule],
+  imports: [FormsModule],
   templateUrl: './item-componente.html',
   styleUrl: './item-componente.css',
 })
