@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IDBPDatabase, openDB } from 'idb';
 import { Categoria } from '../modelos/categoria.model';
+import { Producto } from '../modelos/producto.model';
 
 @Injectable({
   providedIn: 'root',
@@ -30,5 +31,12 @@ export class IndexDBServicio {
   }
   async todasCategorias () : Promise<Categoria[]>{
     return (await this.dbPromise).getAll('categorias');
+  }
+  // Productos
+  async agregarProductos(producto: Producto)  {
+     return (await this.dbPromise).add('productos',producto);
+  }
+  async todosProductos () : Promise<Producto[]>{
+    return (await this.dbPromise).getAll('productos');
   }
 }
