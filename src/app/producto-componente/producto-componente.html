@@ -16,11 +16,11 @@
     </div>
     <div class="mb-3">
         <label for="categoria" class="form-label">Categoria</label>
-        <select class="form-select" aria-label="Default select example">
+        <select class="form-select" aria-label="Default select example"
+            [(ngModel)]="nuevoProdc().categoriaId">
             <option value="0">Seleccione una categoria</option>
-            <option *ngFor="let c of categorias() "  value="c.id">
+            <option *ngFor="let c of categorias() "  [value]="c.id">
                 {{c.nombre}}
-
             </option>
   
         </select>
@@ -30,12 +30,13 @@
             (click)="guardar()">Guardar</button>
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-            <strong>Dell 17"</strong> en  7525 Bs
-            <p><strong>Categoria:</strong> &nbsp;<i>Laptops</i></p>
-        </li>
-        <li class="list-group-item">
-            <strong>Toshiba 14"</strong> en  5525 Bs
+        <li class="list-group-item" *ngFor="let prod of productos()">
+            <strong>{{prod.nombre}}</strong> en  {{prod.precio}} Bs
+            <p><strong>Categoria:</strong> &nbsp;<i>{{prod.categoriaId}}</i> {{obtenerNombreCategoria(prod.categoriaId)}}</p>
+            <button type="button" class="btn btn-warning" 
+            (click)="editar()">Editar</button>
+             <button type="button" class="btn btn-danger" 
+            (click)="eliminar()">Eliminar</button>
         </li>
     </ul>
 </div>

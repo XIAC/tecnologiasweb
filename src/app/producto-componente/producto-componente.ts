@@ -31,12 +31,17 @@ export class ProductoComponente {
     this.categorias.set( await this.db.todasCategorias());
     console.log(this.categorias());
   }
-  guardar(){
+  async guardar(){
     console.log("se guardo correcatmente");
-    console.log(this.nuevoProdc);
-    // this.db.guardarProducto();
-  }
+    console.log(this.nuevoProdc());
+    const producto = this.nuevoProdc();
+    await this.db.agregarProductos(producto);
+    this.productos.set( await this.db.todosProductos());
 
+  }
+  obtenerNombreCategoria(id: number) {
+  return this.categorias().find(c => c.id == id)?.nombre || 'Sin categoria';
+  }
   editar(){}
 
   eliminar(){}

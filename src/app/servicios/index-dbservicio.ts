@@ -29,6 +29,9 @@ export class IndexDBServicio {
   async agregarCategoria(categoria: Categoria)  {
      return (await this.dbPromise).add('categorias',categoria);
   }
+  async obtenerCategoria(id: number)  {
+     return (await this.dbPromise).get('categorias', id);
+  }
   async todasCategorias () : Promise<Categoria[]>{
     return (await this.dbPromise).getAll('categorias');
   }
